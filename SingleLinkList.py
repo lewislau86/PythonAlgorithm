@@ -118,7 +118,7 @@ class SingleLinkList(object):
 
     def _reverse(self, head):
         """反转链表 递归"""
-        if head.next == None or head==None:
+        if head==None or head.next == None :
             return head
         else:
             new_head = self._reverse(head.next)
@@ -126,6 +126,23 @@ class SingleLinkList(object):
             head.next = None
             return new_head
 
+    def sort(self):
+        """排序"""
+        if self.is_empty():
+            return
+        self._sort(self._head)
+
+    def _sort(self, head):
+        """排序"""
+        if head==None or head.next == None:
+            return head
+        else:
+            cur = head
+            while cur.next != None:
+                if cur.item > cur.next.item:
+                    cur.item, cur.next.item = cur.next.item, cur.item
+                cur = cur.next
+            self._sort(head)
 
 
 
@@ -138,9 +155,13 @@ if __name__ == "__main__":
     #lp_wrapper(1)
     #lp.print_stats()
     #ll.add(1)
-    for i in range(500):
+    for i in range(10):
         ll.add(random.randint(0,1000))
     #ll.travel()
+    ll.sort()
+    ll.travel()
+
+'''
     lp.add_function(ll.reverse2)
     lp.add_function(ll.reverse1)
     lp.enable()
@@ -148,7 +169,8 @@ if __name__ == "__main__":
     ll.reverse2()
     lp.disable()
     lp.print_stats(sys.stdout)
-    #ll.travel()
+   
+   '''
 
    # print ll.search(3)
    # print ll.search(5)
