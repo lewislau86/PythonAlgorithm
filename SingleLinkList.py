@@ -133,7 +133,8 @@ class SingleLinkList(object):
         self._sort(self._head)
 
     def _sort(self, head):
-        """排序"""
+        pass
+        """排序
         if head==None or head.next == None:
             return head
         else:
@@ -143,7 +144,7 @@ class SingleLinkList(object):
                     cur.item, cur.next.item = cur.next.item, cur.item
                 cur = cur.next
             self._sort(head)
-
+        """
 
 
 
